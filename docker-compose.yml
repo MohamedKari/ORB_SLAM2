@@ -1,0 +1,15 @@
+version: "3.7"
+
+services:
+  orb-slam2:
+    build:
+      context: "."
+    image: orb-slam2
+    shm_size: "4gb"
+    environment: 
+      - DISPLAY
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - /home/ubuntu/.Xauthority:/root/.Xauthority:rw
+      - /home/ubuntu/share/orb-slam2:/share/
+    network_mode: "host"
